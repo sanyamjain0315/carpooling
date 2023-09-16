@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/signup.css">
+     
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
+    <title>Responsive Regisration Form</title> 
+</head>
+<body>
+    <div class="container">
+        <header>Registration for User</header>
+        <form action="#">
+            <div class="form first">
+                <div class="details personal">
+                    <span class="title">Personal Details</span>
+
+                    <div class="fields">
+                        <div class="input-field">
+                            <label>First Name</label>
+                            <input type="text" placeholder="Enter your first name" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Last Name</label>
+                            <input type="text" placeholder="Enter your last name" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Age</label>
+                            <input type="number" placeholder="Enter Age" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Mobile Number</label>
+                            <input type="string" placeholder="Enter mobile number" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Gender</label>
+                            <select required>
+                                <option disabled selected>Select gender</option>
+                                <option>Male</option>
+                                <option>Female</option>
+                                <option>Others</option>
+                            </select>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Occupation</label>
+                            <select required>
+                                <option disabled selected>Select Occupation</option>
+                                <option>Student</option>
+                                <option>Office employee</option>
+                                <option>Teacher</option>
+                                <option>Docter</option>
+                            </select>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Email</label>
+                            <input type="email" placeholder="Enter your email" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Password</label>
+                            <input type="password" placeholder="Enter your password" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Confirm Password</label>
+                            <input type="password" placeholder="Enter password again" required>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="details ID">
+                    <span class="title">Identity Details</span>
+
+                    <div class="fields">
+                        <div class="input-field">
+                            <label>Start location</label>
+                            <input type="text" placeholder="Enter your work place" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>End Location</label>
+                            <input type="text" placeholder="Enter end location" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Timing</label>
+                            <input type="datetime" placeholder="Enter time" required>
+                        </div>
+
+                    </div>
+
+                    <button class="nextBtn">
+                        <span class="btnText">Sign Up</span>
+                        <i class="uil uil-navigator"></i>
+                    </button>
+                </div> 
+            </div>
+
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
