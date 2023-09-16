@@ -34,14 +34,20 @@ def append_to_existing_emails(email: str):
         print(f"{email} added succesfully")    
 
 
-email = 'naresh@gmail.com'
-if new_email_ckeck(email):
-     append_to_existing_emails(email)
-     print(f"{email} added succesfully")    
-else:
-     print(f'{email} already exists')
+def create_account(first_name, last_name, age, email, mobile_number, gender, occupation, password, start_location, end_location, timing):
+    try:
+        new_user = User(first_name=first_name, last_name=last_name, age=age, email=email, mobile_number=mobile_number, gender=gender, 
+                        occupation=occupation, password=password, start_location=start_location, end_location=end_location, timing=timing)
+        ref_individual_user.document(email).set(new_user.get_json())
+        del new_user
+        return True
+    except:
+        return False
+     
 
-
+# e = "naresh@abc.com"
+# create_account(first_name='Naresh', last_name='Gusain', age=20, mobile_number='7977797788', gender="Male", occupation='Student', password='qwertyuiop', start_location='a', end_location='b', timing='123', email=e)
+# append_to_existing_emails(email=e)
 # def add_user(first_name:str, last_name, age, email, phone_number, gender, ocupation):
 #     assert isinstance(first_name, str), 'first_name should be a String'
 #     assert isinstance(last_name, str), 'last_name should be a String'

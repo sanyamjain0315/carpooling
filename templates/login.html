@@ -17,15 +17,14 @@
             <div class="field">
                 <div class="ui left icon input">
                     <i class="mail outline icon"></i>
-                    <input type="email" name="email" placeholder="Email Address" autofocus="true" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}">
-
+                    <input type="email" name="email" placeholder="Email Address" autofocus="true" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}" required>
                 </div>
             </div>
             <br>
             <div class="field">
                 <div class="ui left icon input">
                     <i class="lock icon"></i>
-                    <input type="password" name="password" placeholder="Password">
+                    <input type="text" placeholder="Enter a valid password" required  name="password">
                 </div>
             </div>
             {{ message|safe }}

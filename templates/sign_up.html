@@ -8,12 +8,14 @@
      
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
 
-    <title>Responsive Regisration Form</title> 
+    <title>Sign Up</title> 
 </head>
 <body>
     <div class="container">
         <header>Registration for User</header>
-        <form action="#">
+        {{message|safe}}
+        <form action="/sign_up" method="POST" onsubmit="return validatePasswords()">
+
             <div class="form first">
                 <div class="details personal">
                     <span class="title">Personal Details</span>
@@ -21,38 +23,36 @@
                     <div class="fields">
                         <div class="input-field">
                             <label>First Name</label>
-                            <input type="text" placeholder="Enter your first name" required>
+                            <input type="text" placeholder="Enter your first name" required name="first_name" autofocus="true">
                         </div>
 
                         <div class="input-field">
                             <label>Last Name</label>
-                            <input type="text" placeholder="Enter your last name" required>
+                            <input type="text" placeholder="Enter your last name" required name="last_name">
                         </div>
 
                         <div class="input-field">
                             <label>Age</label>
-                            <input type="number" placeholder="Enter Age" required>
+                            <input type="number" placeholder="Enter Age" required min="16" name="age">
                         </div>
 
                         <div class="input-field">
                             <label>Mobile Number</label>
-                            <input type="string" placeholder="Enter mobile number" required>
+                            <input type="string" placeholder="Enter mobile number" required name="mobile_number" minlength="10" maxlength="10" pattern="[0-9]{10}">
                         </div>
 
                         <div class="input-field">
                             <label>Gender</label>
-                            <select required>
-                                <option disabled selected>Select gender</option>
+                            <select required name="gender">
+                                <option >Select gender</option>
                                 <option>Male</option>
                                 <option>Female</option>
-                                <option>Others</option>
                             </select>
                         </div>
 
                         <div class="input-field">
                             <label>Occupation</label>
-                            <select required>
-                                <option disabled selected>Select Occupation</option>
+                            <select required name="occupation">
                                 <option>Student</option>
                                 <option>Office employee</option>
                                 <option>Teacher</option>
@@ -62,53 +62,90 @@
 
                         <div class="input-field">
                             <label>Email</label>
-                            <input type="email" placeholder="Enter your email" required>
+                            <input type="email" name="email" placeholder="Email Address" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}"  required>
                         </div>
 
                         <div class="input-field">
                             <label>Password</label>
-                            <input type="password" placeholder="Enter your password" required>
+                            <input id="password" type="password" placeholder="Enter a valid password" required minlength="8" name="password">
                         </div>
 
                         <div class="input-field">
                             <label>Confirm Password</label>
-                            <input type="password" placeholder="Enter password again" required>
+                            <input id="confirm_password" type="password" placeholder="Enter password again" required>
                         </div>
-
                     </div>
+                    <h4 id="password_warning" style="color: red; text-align: right; font-size: 15px;"></h4>
+
+                    
                 </div>
 
                 <div class="details ID">
-                    <span class="title">Identity Details</span>
+                    <span class="title">Identity Details(you can change it later)</span>
 
                     <div class="fields">
                         <div class="input-field">
                             <label>Start location</label>
-                            <input type="text" placeholder="Enter your work place" required>
+                            <input type="text" placeholder="Enter your work place" required name="start_location">
                         </div>
 
                         <div class="input-field">
                             <label>End Location</label>
-                            <input type="text" placeholder="Enter end location" required>
+                            <input type="text" placeholder="Enter end location" required name="end_location">
                         </div>
 
                         <div class="input-field">
                             <label>Timing</label>
-                            <input type="datetime" placeholder="Enter time" required>
+                            <input type="datetime-local" id="datetime" name="timing" required>
                         </div>
 
                     </div>
-
-                    <button class="nextBtn">
+                </div> 
+                <div style="display: flex; flex-direction: column; align-items: flex-start;">
+                    <button   class="nextBtn" style="align-self: flex-end;">
                         <span class="btnText">Sign Up</span>
                         <i class="uil uil-navigator"></i>
                     </button>
-                </div> 
+                </div>
             </div>
 
         </form>
     </div>
 
     <script src="script.js"></script>
+    <script>
+        // Get references to the password and confirm password input fields and the warning message
+        const passwordInput = document.getElementById("password");
+        const confirmPasswordInput = document.getElementById("confirm_password");
+        const passwordWarning = document.getElementById("password_warning");
+    
+        // Add an event listener to the confirm password input field
+        confirmPasswordInput.addEventListener("input", function () {
+            const password = passwordInput.value;
+            const confirmPassword = confirmPasswordInput.value;
+    
+            // Check if the passwords match
+            if (password === confirmPassword) {
+                passwordWarning.textContent = ""; // Clear the warning message
+            } else {
+                passwordWarning.textContent = "Passwords do not match"; // Display the warning message
+            }
+        });
+
+        function validatePasswords() {
+            var password = document.getElementById("password").value;
+            var confirmPassword = document.getElementById("confirm_password").value;
+            var passwordWarning = document.getElementById("password_warning");
+
+            if (password !== confirmPassword) {
+                passwordWarning.textContent = "Passwords do not match"; // Display the warning message
+                return false; // Prevent the form from submitting
+            } else {
+                passwordWarning.textContent = ""; // Clear the warning message if passwords match
+                return true; // Allow the form to submit
+            }
+        }
+    </script>
 </body>
 </html>
+
