@@ -4,30 +4,42 @@ from utility.util import *
 service_account_json_path = "auth\\firebase_auth2.json"
 db = firestore.Client.from_service_account_json(service_account_json_path, project=PROJECT2)
 
-def append_to_existing_emails(email: str):
+ref_existing_email = db.collection(USERS).document("ExistingEmails")
+ref_individual_user = db.collection(INDIVIDUAL_USER)
+
+def new_email_ckeck(email):
     if validate_email(email=email):
-        doc_ref = db.collection(USERS).document("ExistingEmails")
-        doc = doc_ref.get()
-        existing_email_list = doc.to_dict().get('existing_email_list')
-        print(existing_email_list)
-        print(type(existing_email_list))
-        if email in existing_email_list:
-            return False
-        else:
-            existing_email_list.append(email)
-            doc_ref.update({"existing_email_list": existing_email_list})
+        docs = ref_existing_email.get()
+        existing_email_list = docs.to_dict().get('existing_email_list')
+        if email not in existing_email_list:
             return True
+        else:
+            return False
     else:
         return False
-        
+
+def check_password(email,password):
+    docs = ref_individual_user.document(email).get()
+    encrypted_password = docs.to_dict().get('password')
+    if encrypted_password == sha256(password):
+         return True
+    else:
+        return False
+
+def append_to_existing_emails(email: str):
+        docs = ref_existing_email.get()
+        existing_email_list = docs.to_dict().get('existing_email_list')
+        existing_email_list.append(email)
+        ref_existing_email.update({"existing_email_list": existing_email_list})    
+        print(f"{email} added succesfully")    
 
 
-if append_to_existing_emails('sanyamjain0015@gmail.com'):
-    print('added')
+email = 'naresh@gmail.com'
+if new_email_ckeck(email):
+     append_to_existing_emails(email)
+     print(f"{email} added succesfully")    
 else:
-    print("already present")
-
-
+     print(f'{email} already exists')
 
 
 # def add_user(first_name:str, last_name, age, email, phone_number, gender, ocupation):

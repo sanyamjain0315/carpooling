@@ -1,103 +1,42 @@
 <!DOCTYPE html>
-<!--=== Coding by CodingLab | www.codinglabweb.com === -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!----======== CSS ======== -->
-    <link rel="stylesheet" href="static\login.css">
-     
-    <!----===== Iconscout CSS ===== -->
-    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/semantic.min.css" integrity="sha256-wT6CFc7EKRuf7uyVfi+MQNHUzojuHN2pSw0YWFt2K5E=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="../static/login.css">
 
-    <title>Responsive Regisration Form </title> 
+
+    <title>Login</title>
 </head>
 <body>
-    <div class="container">
-        <header>Registration for User</header>
-        C:\Users\nares\OneDrive\Desktop\Registration Form\style.css
-        <form action="#">
-            <div class="form first">
-                <div class="details personal">
-                    <span class="title">Personal Details</span>
+    <div class="ui raised very padded center aligned text container segment">
+        <h1 class="ui header">Log in</h1>
+        <br>
+        <form action="/" method="POST">
+            <div class="field">
+                <div class="ui left icon input">
+                    <i class="mail outline icon"></i>
+                    <input type="email" name="email" placeholder="Email Address" autofocus="true" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}">
 
-                    <div class="fields">
-                        <div class="input-field">
-                            <label>First name</label>
-                            <input type="text" placeholder="Enter your first name" required>
-                        </div>
-
-                        <div class="input-field">
-                            <label>Last Name</label>
-                            <input type="text" placeholder="Enter your last name" required>
-                        </div>
-
-                        <div class="input-field">
-                            <label>Age</label>
-                            <input type="number" placeholder="Enter Age" required>
-                        </div>
-
-                        <div class="input-field">
-                            <label>Email</label>
-                            <input type="text" placeholder="Enter your email" required>
-                        </div>
-
-                        <div class="input-field">
-                            <label>Mobile Number</label>
-                            <input type="number" placeholder="Enter mobile number" required>
-                        </div>
-
-                        <div class="input-field">
-                            <label>Gender</label>
-                            <select required>
-                                <option disabled selected>Select gender</option>
-                                <option>Male</option>
-                                <option>Female</option>
-                                <option>Others</option>
-                            </select>
-                        </div>
-
-                        <div class="input-field">
-                            <label>Occupation</label>
-                            <input type="text" placeholder="Enter your Occupation" required>
-                        </div>
-
-                    </div>
                 </div>
-
-                <div class="details ID">
-                    <span class="title">Identity Details</span>
-
-                    <div class="fields">
-                        <div class="input-field">
-                            <label>Start location</label>
-                            <input type="text" placeholder="Enter your work place" required>
-                        </div>
-
-                        <div class="input-field">
-                            <label>End Location</label>
-                            <input type="text" placeholder="Enter end location" required>
-                        </div>
-
-                        <div class="input-field">
-                            <label>Timing</label>
-                            <input type="datetime" placeholder="Enter time" required>
-                        </div>
-
-                    </div>
-
-                    <button class="nextBtn">
-                        <span class="btnText">Save</span>
-                        <i class="uil uil-navigator"></i>
-                    </button>
-                </div> 
             </div>
-
+            <br>
+            <div class="field">
+                <div class="ui left icon input">
+                    <i class="lock icon"></i>
+                    <input type="password" name="password" placeholder="Password">
+                </div>
+            </div>
+            {{ message|safe }}
+            <br>
+            <div class="actions">
+                <button class="ui large teal button col" type="submit">Log in</button>
+            </div>
         </form>
+        <br>
+        <p>Don't have an account? <a href="/sign_up">Sign up</a></p>
     </div>
-
-    <script src="script.js"></script>
 </body>
 </html>
+
