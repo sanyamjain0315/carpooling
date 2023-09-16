@@ -1,2 +1,4 @@
+Flask==2.3.3
 googlemaps==4.10.0
 polyline==2.0.0
+protobuf==3.20.3
