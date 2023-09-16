@@ -1,1 +1,2 @@
-
+googlemaps==4.10.0
+polyline==2.0.0
