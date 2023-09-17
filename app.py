@@ -1,5 +1,7 @@
 from flask import Flask, render_template, request, session, redirect, url_for, flash
 from firebase_db import new_email_ckeck, append_to_existing_emails, check_password, create_account
+import razorpay
+from datetime import datetime
 
 app = Flask(__name__)
 app.secret_key = 'db33edb0296bf8f4737c321c82d2103e933f333d50fb3ae9f1758002c3e0dc79'
@@ -86,6 +88,17 @@ def signup():
 def logout():
     session.pop('user_email',None) 
     return render_template("login.html")
+
+@app.route("/pay", methods=['POST'])
+def pay():
+    global payment, name
+    name = request.form.get('username')
+    # client = razorpay.Client(auth=("RAZORPAY_ID", "RAZORPAY_SECRET"))
+    client = razorpay.Client(auth=("rzp_test_bEmrlWMc2mxFJq", "NDkpNo7sfBHSFB5MGiKonRqG"))
+
+    data = { "amount": 1, "currency": "INR", "receipt": "order_rcptid_11" }
+    payment = client.order.create(data=data)
+    return render_template('pay.html', payment=payment)
 
 
 
