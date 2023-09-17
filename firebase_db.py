@@ -57,7 +57,6 @@ def add_driver_routes(email, api_output, empty_seats, car_type, fuel_type):
 
 
 
-
 # e = "naresh@abc.com"
 # create_account(first_name='Naresh', last_name='Gusain', age=20, mobile_number='7977797788', gender="Male", occupation='Student', password='qwertyuiop', start_location='a', end_location='b', timing='123', email=e)
 # append_to_existing_emails(email=e)

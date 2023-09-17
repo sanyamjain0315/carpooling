@@ -66,18 +66,20 @@ def profile_gen(doc):
                 <img src="https://e7.pngegg.com/pngimages/550/997/png-clipart-user-icon-foreigners-avatar-child-face.png" alt="User 2">
             </div>
             <div class="profile-info">
-                <h2>Name: {{name}}</h2>
-                <p>Age: {{age}}</p>
-                <p>Gender: {{gender}}</p>
-                <p>Occupation: {{occupation}}</p>
-                <p>Timing: {{timing}}</p>
-                <p>Start Location: {{start_location}}</p>
-                <p>End Location: {{end_location}}</p>
+                <h2>Name: {doc['first_name']}</h2>
+                <p>Age: {doc['age']}</p>
+                <p>Gender:{doc['gender']}</p>
+                <p>Occupation: {doc['gender']}</p>
+                <p>Timing: {doc['first_name']}</p>
+                <p>Start Location: {doc['first_name']}</p>
+                <p>End Location: {doc['first_name']}</p>
             </div>
             <div class="profile-buttons">
                 <button class="accept-button">Accept</button>
                 <button class="reject-button">Reject</button>
                 <button class="view-map-button">View Map</button>
             </div>
+        </div>
+        
         '''
     return user_profile

@@ -41,18 +41,11 @@
         </div>
     </nav>
 
-    <section>
-        {% for matches in match %}
-            {{ matches[0] }}
-        {% endfor %}
-        <!-- {{data}} -->
-    </section>
-
-    <section>
+    <section style="display: flex; justify-content: center; align-items: center; height: 100vh;">
         <!-- {% for matches in match %}
             {{ matches[0] }}
         {% endfor %} -->
-        {{data}}
+        {{data|safe}}
     </section>
 
     <footer>
@@ -61,3 +54,4 @@
 </body>
 
 </html>
+
