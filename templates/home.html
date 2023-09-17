@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/50319c8334.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="static\home.css">
     <title>Home</title>
 </head>
@@ -18,13 +21,16 @@
           <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="{{ url_for('about') }}">Home</a>
+                <a class="nav-link active" aria-current="page" href="/home">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/about">About Us</a>
+                <a class="nav-link" href="/about_us">About Us</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="/contact_us">Contact Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/connect">Connect</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="/logout">Logout</a>
@@ -35,17 +41,28 @@
       </nav>
 
       <section class="hero">
-        <div class="hero-content">
+        <!-- <div class="hero-content">
             <h1>Welcome to LiftLink</h1>
             <p>Share rides, reduce traffic, and save money!</p>
-            <a href="#" class="cta-button">Get Started</a>
-        </div>
-    </section>
+            <a href="main" class="cta-button">Get Started</a>
+        </div> -->
+        <div class="container header-section flex">
+          <div class="header-left">
+              <h1>Welcome to LiftLink</h1>
+              <p>Share rides, reduce traffic, and save money!</p>
+              <a href="/data_collection" class="primary-button">Get Started</a>
+          </div>
+          <div class="header-right">
+              <img src="../static/assets/1000_F_281443778_fsZ6DBQubNZxF2kXW6Wn30OqeJ3vmznH-removebg-preview.png" alt="hero img">
+          </div>
+
+      </div>
+      </section>
 
     <section class="about">
         <div class="about-content">
             <h3>About Us</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque.</p>
+            <p>we are passionate about transforming the way people commute and reducing traffic congestion. <br>Our innovative carpooling platform is designed to make your daily commute <mark>more convenient</mark> , <mark>cost-effective</mark>, & <mark>Eco-friendly</mark></p>
             <a href="../templates/about_us.html" class="learn-more-button">Learn More</a>
         </div>
     </section>

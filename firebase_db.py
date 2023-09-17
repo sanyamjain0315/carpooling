@@ -6,6 +6,8 @@ db = firestore.Client.from_service_account_json(service_account_json_path, proje
 
 ref_existing_email = db.collection(USERS).document("ExistingEmails")
 ref_individual_user = db.collection(INDIVIDUAL_USER)
+ref_driver_route = db.collection(DRIVER_ROUTE)
+ref_passenger_route = db.collection(USER_ROUTE)
 
 def new_email_ckeck(email):
     if validate_email(email=email):
@@ -44,6 +46,17 @@ def create_account(first_name, last_name, age, email, mobile_number, gender, occ
     except:
         return False
      
+def add_passenger_routes(email, api_output):
+    ref_passenger_route.document(email).set({'google_maps_output':api_output[0]})
+
+def add_driver_routes(email, api_output, empty_seats, car_type, fuel_type):
+    ref_driver_route.document(email).set({'google_maps_output':api_output[0],
+                                          'empty_seats':empty_seats,
+                                          'car_type': car_type,
+                                          'fuel_type': fuel_type})
+
+
+
 
 # e = "naresh@abc.com"
 # create_account(first_name='Naresh', last_name='Gusain', age=20, mobile_number='7977797788', gender="Male", occupation='Student', password='qwertyuiop', start_location='a', end_location='b', timing='123', email=e)

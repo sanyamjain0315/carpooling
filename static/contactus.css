@@ -2,6 +2,9 @@
 body, h1, h2, h3, p, ul, li {
     margin: 0;
     padding: 0;
+    background: #0F2027;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */    
 }
 
 body {
@@ -43,7 +46,7 @@ nav ul li a {
 .btn {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #ff6600;
+    background-color: #0F2027;
     color: #fff;
     text-decoration: none;
     border-radius: 5px;
@@ -51,7 +54,7 @@ nav ul li a {
 }
 
 .btn:hover {
-    background-color: #bc4f06;
+    background-color: #166b8f;
 }
 
 .contact {
@@ -88,7 +91,7 @@ nav ul li a {
 }
 
 .contact-form button {
-    background-color: #ff6600;
+    background-color: #0F2027;
     color: #fff;
     border: none;
     padding: 10px 20px;
@@ -97,5 +100,5 @@ nav ul li a {
 }
 
 .contact-form button:hover {
-    background-color: #e65c00;
+    background-color: #1a5068;
 }
