@@ -3,6 +3,8 @@ from datetime import datetime as dt
 
 USERS = 'Users'
 INDIVIDUAL_USER = 'Individual_Users'
+DRIVER_ROUTE = 'Driver_Route'
+USER_ROUTE = 'User_Route'
 PROJECT = 'blue-bebd1'
 PROJECT2 = 'social-media-a6937'
 
@@ -55,3 +57,27 @@ class User():
                 'created_at': self.created_at,
                 'updated_at': self.updated_at,
                 'trip_info': self.trip_info}
+
+
+def profile_gen(doc):
+    user_profile = f'''
+        <div class="profile-card">
+            <div class="profile-img">
+                <img src="https://e7.pngegg.com/pngimages/550/997/png-clipart-user-icon-foreigners-avatar-child-face.png" alt="User 2">
+            </div>
+            <div class="profile-info">
+                <h2>Name: {{name}}</h2>
+                <p>Age: {{age}}</p>
+                <p>Gender: {{gender}}</p>
+                <p>Occupation: {{occupation}}</p>
+                <p>Timing: {{timing}}</p>
+                <p>Start Location: {{start_location}}</p>
+                <p>End Location: {{end_location}}</p>
+            </div>
+            <div class="profile-buttons">
+                <button class="accept-button">Accept</button>
+                <button class="reject-button">Reject</button>
+                <button class="view-map-button">View Map</button>
+            </div>
+        '''
+    return user_profile

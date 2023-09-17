@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/semantic.min.css" integrity="sha256-wT6CFc7EKRuf7uyVfi+MQNHUzojuHN2pSw0YWFt2K5E=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="../static/data_collection.css">
+    <title>Driver and Passenger Form</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Choose User Type</h1>
+        <input type="radio" id="driver" name="user-choice" value="driver">
+        <label for="driver">Driver</label>
+        
+        <input type="radio" id="passenger" name="user-choice" value="passenger">
+        <label for="passenger">Passenger</label>
+        
+        <form id="driver-form" class="hidden" action="/add_driver" method="POST">
+            <h2>Driver Form</h2>
+            <div class="form-fields">
+                <label for="start-location">Start Location</label>
+                <input type="text" id="start-location" name="start_location" required>
+                
+                <label for="end-location">End Location</label>
+                <input type="text" id="end-location" name="end_location" required>
+                
+                <label for="timing">Timing</label>
+                <input type="datetime-local" id="datetime" name="timing" required>
+
+                <label for="empty-seats">Empty Seats</label>
+                <input type="number" id="empty-seats" name="empty_seats" required min="1", max="6">
+                
+                <div class="input-field">
+                    <label>Car Type</label>
+                    <select required name="car_type">
+                        <option value="suv">SUV</option>
+                        <option value="sedan">Sedan</option>
+                    </select>
+                </div>
+                
+                <div class="input-field">
+                    <label>Fuel Type</label>
+                    <select required name="fuel_type">
+                        <option value="petrol">Petrol</option>
+                        <option value="disel">Disel</option>
+                        <option value="electric">Electric</option>
+                    </select>
+                </div>
+                <button class="ui large teal button col" type="submit">Log in</button>
+            </div>
+        </form>
+        
+        <form id="passenger-form" class="hidden" action="/add_passenger" method="POST">
+            <h2>Passenger Form</h2>
+            <div class="form-fields">
+                <label for="start-location-passenger">Start Location</label>
+                <input type="text" id="start-location-passenger" name="start_location" required>
+                
+                <label for="end-location-passenger">End Location</label>
+                <input type="text" id="end-location-passenger" name="end_location" required>
+                
+                <label for="timing-passenger">Timing</label>
+                <input type="datetime-local" id="datetime" name="timing" required>
+                <button class="ui large teal button col" type="submit">Log in</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

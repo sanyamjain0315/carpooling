@@ -38,7 +38,7 @@ nav a {
 
 /* Style the hero section */
 .hero {
-    background-image: url('hero-image.jpg'); /* Replace with your image URL */
+    background-image: url('hero-image.jpg'); 
     background-size: cover;
     background-position: center;
     text-align: center;
@@ -47,15 +47,16 @@ nav a {
 }
 
 .hero h1 {
-    font-size: 36px;
+    font-size: 80px;
     margin-bottom: 20px;
+    font-family: 'Bree Serif', serif;
 }
 
 .hero p {
     font-size: 18px;
     margin-bottom: 30px;
 }
-
+/* 
 .cta-button {
     display: inline-block;
     padding: 15px 30px;
@@ -64,7 +65,65 @@ nav a {
     text-decoration: none;
     font-weight: bold;
     border-radius: 5px;
+}  */
+
+.container{
+    max-width: 1180px;
+    margin-inline: auto;
+    padding-inline: var(--padding-inline-section);
 }
+.flex{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.primary-button{
+    background-color: var(--accent-color);
+    border-radius: 6px;
+    font-weight: 700;
+    color: white !important;
+    padding: 12px 24px;
+    box-shadow: 0 0 2px var(--secondary-text-color);
+    transition: 0.2s ease-out;
+}
+.header-section{
+    justify-content: center;
+    gap: 50px;
+}
+
+.header-left{
+    max-width: 40vw;
+    flex: 1; /* Take up available space */
+    margin-right: 20px; /* Add margin for spacing */
+}
+
+.header-left h1{
+    margin-top: 20px;
+    size: 50px;
+}
+
+.header-left a{
+    font-family: Averta PE,sans-serif;
+    margin-top: 20px;
+}
+
+.header-right {
+    flex: 1; /* Take up available space */
+}
+
+.header-right img{
+    width: 600px;
+    
+}
+
+.primary-button:hover{
+    background-color: var(--accent-color-dark);
+}
+
+
+
+
+
 
 /* Style the about section */
 .about {
@@ -101,6 +160,7 @@ nav a {
 .eg-text{
     margin-bottom: 20px;
     color: #e0dbdb;
+    margin-top: 10px;
 }
 
 .eg-area{
@@ -199,4 +259,88 @@ footer {
     color: #fff;
     text-align: center;
     padding: 10px 0;
+}
+
+
+
+.profile-card {
+    background-color: white;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    padding: 10px; /* Smaller padding for smaller card size */
+    text-align: left;
+    margin: 10px;
+    width: 250px; /* Smaller card size */
+}
+
+.profile-card img {
+    max-width: 100%;
+    display: block; /* Ensure the image doesn't affect text alignment */
+}
+
+.profile-img {
+    width: 80px;
+    height: 80px;
+    overflow: hidden;
+    border-radius: 50%; /* Create a circular frame */
+}
+
+.profile-info {
+    padding: 10px 0; /* Add spacing between image and text */
+}
+
+.profile-info h2 {
+    font-weight: bold;
+    font-size: 1.2rem; /* Larger font size for headings */
+}
+
+.profile-info p {
+    margin: 5px 0;
+    font-size: 1rem;
+}
+
+/* Existing CSS styles */
+
+.profile-card {
+    /* Increase the size of the card slightly */
+    width: 280px;
+    /* Existing styles */
+    position: relative;
+}
+
+.profile-buttons {
+    text-align: center; /* Center align buttons */
+    padding: 10px 0; /* Add spacing between text and buttons */
+}
+
+.accept-button {
+    background-color: #4CAF50; /* Green */
+    color: white;
+}
+
+.reject-button {
+    background-color: #d12802; /* Red */
+    color: white;
+}
+
+.view-map-button {
+    background-color: #007bff; /* Blue */
+    color: white;
+}
+
+.accept-button,
+.reject-button,
+.view-map-button {
+    border: none;
+    padding: 5px 10px;
+    margin-right: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.accept-button:hover,
+.reject-button:hover,
+.view-map-button:hover {
+    opacity: 0.8; /* Reduce opacity on hover for all buttons */
 }
