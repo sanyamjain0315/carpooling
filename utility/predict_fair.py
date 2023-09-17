@@ -1,5 +1,5 @@
 import pickle
-filename="my_model.pickle"
+filename="utility\my_model.pickle"
 loaded_model = pickle.load(open(filename, "rb"))
 
 def predict_fare(car_type, fuel_type, distance_traveled):

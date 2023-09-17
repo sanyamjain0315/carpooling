@@ -59,7 +59,7 @@ class User():
                 'trip_info': self.trip_info}
 
 
-def profile_gen(doc):
+def profile_gen(doc, fare, distance_traveled):
     user_profile = f'''
         <div class="profile-card">
             <div class="profile-img">
@@ -73,6 +73,8 @@ def profile_gen(doc):
                 <p>Timing: {doc['first_name']}</p>
                 <p>Start Location: {doc['first_name']}</p>
                 <p>End Location: {doc['first_name']}</p>
+                <p>Distance Traveled: {distance_traveled}</p>
+                <p>Fare: ₹{fare}</p>
             </div>
             <div class="profile-buttons">
                 <button class="accept-button">Accept</button>

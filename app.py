@@ -4,6 +4,7 @@ import polyline
 # import razorpay
 from datetime import datetime
 from utility.util import profile_gen
+from utility.predict_fair import predict_fare
 from models.route_calculations import call_directions,Route_functions
 
 app = Flask(__name__)
@@ -144,6 +145,8 @@ def connect():
         doc = doc_ref.get()
         if doc.exists:
             doc = doc.to_dict()
+            car_type = doc['car_type']
+            fuel_type = doc['fuel_type']
             driver_polyline = polyline.decode(doc['google_maps_output']['overview_polyline']['points'])
             driver_polyline  =[(round(lat, 3), round(lon, 3)) for lat, lon in driver_polyline]
 
@@ -160,13 +163,13 @@ def connect():
                 obj = Route_functions()
                 cost = obj.route_similarity(driver_polyline,passenger_route['polyline'])
                 passange_profile_data = ref_individual_user.document(passenger_route['email']).get()
-                final_data.append([ cost, session['user_email'], passenger_route['email'], driver_polyline, passenger_route['polyline'],  passange_profile_data.to_dict()  ])
+                final_data.append([ cost, session['user_email'], passenger_route['email'], driver_polyline, passenger_route['polyline'],  passange_profile_data.to_dict(), passenger_route['doc']['google_maps_output']['legs'][0]['distance']['value']/1000 ])
                 del obj
 
             final_data = sorted(final_data, key=lambda x: x[0])
             temp = ''
             for i in final_data:
-                temp+=profile_gen(i[5])
+                temp+=profile_gen(i[5], predict_fare(car_type=car_type, fuel_type=fuel_type, distance_traveled=i[6]), i[6])
                 temp+="<br><br>"
             return render_template("connect.html", data= temp)
         else:
