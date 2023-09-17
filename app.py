@@ -3,6 +3,7 @@ from firebase_db import *
 import polyline
 # import razorpay
 from datetime import datetime
+from utility.util import profile_gen
 from models.route_calculations import call_directions,Route_functions
 
 app = Flask(__name__)
@@ -158,14 +159,16 @@ def connect():
             for passenger_route in pass_route:
                 obj = Route_functions()
                 cost = obj.route_similarity(driver_polyline,passenger_route['polyline'])
-                final_data.append([ cost, session['user_email'], passenger_route['email'], driver_polyline, passenger_route['polyline'], passenger_route['doc']])
+                passange_profile_data = ref_individual_user.document(passenger_route['email']).get()
+                final_data.append([ cost, session['user_email'], passenger_route['email'], driver_polyline, passenger_route['polyline'],  passange_profile_data.to_dict()  ])
                 del obj
 
             final_data = sorted(final_data, key=lambda x: x[0])
-            # temp = []
-            # for i in final_data:
-            #     temp.append
-            return render_template("connect.html", match=final_data)
+            temp = ''
+            for i in final_data:
+                temp+=profile_gen(i[5])
+                temp+="<br><br>"
+            return render_template("connect.html", data= temp)
         else:
             return redirect(url_for('home'))
 

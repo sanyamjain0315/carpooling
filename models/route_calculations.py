@@ -4,7 +4,7 @@ from datetime import datetime
 import numpy as np
 from datetime import datetime
 
-gmaps = googlemaps.Client(key='AIzaSyBa2xLbIRxFss9cJ4bWAgWH2yylGQgp-hk')
+gmaps = googlemaps.Client(key='Your_API_Key')
 
 def call_directions(start, end, time):
     departure_time = datetime.strptime(time, "%Y-%m-%dT%H:%M")
@@ -12,7 +12,7 @@ def call_directions(start, end, time):
 
 class Route_functions:
     def __init__(self) -> None:
-        self.gmaps = googlemaps.Client(key='AIzaSyBa2xLbIRxFss9cJ4bWAgWH2yylGQgp-hk')
+        self.gmaps = googlemaps.Client(key='Your_API_Key')
 
     # Function to do all the processes at once. Only to be used when __main__
     def similarity_wrapper(self, car_owner_source, car_owner_destination, passenger_source, passenger_destination, departure_time=datetime.now(),rounding_flag=False, rounding_threshold=3):
